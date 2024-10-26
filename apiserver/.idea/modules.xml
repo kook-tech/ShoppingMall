@@ -4,8 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/apiserver.main.iml" filepath="$PROJECT_DIR$/.idea/modules/apiserver.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/apiserver.test.iml" filepath="$PROJECT_DIR$/.idea/modules/apiserver.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.viper.apiserver.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.viper.apiserver.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.viper.apiserver.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.viper.apiserver.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/org.viper.apiserver.main.iml" filepath="$PROJECT_DIR$/.idea/modules/org.viper.apiserver.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/org.viper.apiserver.test.iml" filepath="$PROJECT_DIR$/.idea/modules/org.viper.apiserver.test.iml" />
     </modules>
   </component>
 </project>
