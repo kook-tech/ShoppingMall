@@ -1,6 +1,8 @@
 package com.viper.apiserver.service;
 
 import com.viper.apiserver.domain.Todo;
+import com.viper.apiserver.dto.PageRequestDTO;
+import com.viper.apiserver.dto.PageResponseDTO;
 import com.viper.apiserver.dto.TodoDTO;
 
 public interface TodoService {
@@ -13,6 +15,11 @@ public interface TodoService {
     //수정//
     void remove(Long tno);
     //삭제//
+
+
+    PageResponseDTO<TodoDTO> getList(PageRequestDTO pageRequestDTO);
+
+
     default TodoDTO entityToDTO(Todo todo){
         return TodoDTO.builder()
                         .tno(todo.getTno())

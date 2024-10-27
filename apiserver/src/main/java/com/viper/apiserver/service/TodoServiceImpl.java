@@ -1,15 +1,20 @@
 package com.viper.apiserver.service;
 
 import com.viper.apiserver.domain.Todo;
+import com.viper.apiserver.dto.PageRequestDTO;
+import com.viper.apiserver.dto.PageResponseDTO;
 import com.viper.apiserver.dto.TodoDTO;
 import com.viper.apiserver.repository.TodoRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.swing.text.html.Option;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Log4j2
@@ -56,6 +61,30 @@ public class TodoServiceImpl implements TodoService{
     public void remove(Long tno) {
 
         todoRepository.deleteById(tno);
+
+    }
+
+    @Override
+    public PageResponseDTO<TodoDTO> getList(PageRequestDTO pageRequestDTO) {
+
+        //JPA
+        Page<Todo> result = todoRepository.search1(pageRequestDTO);
+
+        //Todo List => Todo DTO List
+        List<TodoDTO> dtoList = result
+                .get()
+                .map(todo -> entityToDTO(todo)).collect(Collectors.toList());
+        //get메서드로 꺼내서 DTO로 변환한 후 리스트로 바꿔 dtoList에 저장
+
+        PageResponseDTO<TodoDTO> responseDTO =
+                PageResponseDTO
+                        .<TodoDTO>withAll()
+                        .dtoList(dtoList)
+                        .pageRequestDTO(pageRequestDTO)
+                        .total(result.getTotalElements())
+                        .build();
+
+        return responseDTO;
 
     }
 }

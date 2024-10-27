@@ -1,6 +1,7 @@
 package com.viper.apiserver.service;
 
 
+import com.viper.apiserver.dto.PageRequestDTO;
 import com.viper.apiserver.dto.TodoDTO;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
@@ -32,5 +33,15 @@ public class TodoServiceTests {
                 .build();
 
         log.info(todoService.register(todoDTO));
+    }
+
+    @Test
+    public  void testGetList(){
+
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder().page(31).build();
+
+        log.info(todoService.getList(pageRequestDTO));
+
+
     }
 }

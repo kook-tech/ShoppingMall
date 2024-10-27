@@ -84,10 +84,14 @@ public class TodoRepositoryTests {
         log.info(result.getContent());
     }
 
+/*
+    repository TodoSearch search1 메서드 변경으로 인한 주석처리
     @Test
     public void testSearch1(){
         todoRepository.search1();
     }
+
+    */
 }
 
 
