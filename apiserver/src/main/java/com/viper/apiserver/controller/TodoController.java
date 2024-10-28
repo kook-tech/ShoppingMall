@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+
 @RestController
 @Log4j2
 @RequiredArgsConstructor
@@ -39,5 +40,24 @@ public class TodoController {
         //새로 생성된 튜플의 tno 값.
 
         return Map.of("TNO", tno);
+    }
+
+    @PutMapping("/{tno}")
+    public Map<String, String> modify(@PathVariable("tno")Long tno,
+                                      @RequestBody TodoDTO todoDTO){
+
+        todoDTO.setTno(tno);
+        //혹시 모르니 pathvariable로 받은 아이와 tno 일치하도록
+
+        todoService.modify(todoDTO);
+
+        return Map.of("RESULT", "SUCCESS");
+    }
+
+    @DeleteMapping("/{tno}")
+    public Map<String, String> remove(@PathVariable Long tno){
+        todoService.remove(tno);
+
+        return Map.of("RESULT","SUCCESS");
     }
 }
