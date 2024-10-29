@@ -23,6 +23,7 @@ public interface TodoService {
     default TodoDTO entityToDTO(Todo todo){
         return TodoDTO.builder()
                         .tno(todo.getTno())
+                        .writer(todo.getWriter())
                         .title(todo.getTitle())
                         .content(todo.getContent())
                         .complete(todo.isComplete())
@@ -33,6 +34,7 @@ public interface TodoService {
     default Todo dtoToEntity(TodoDTO todoDTO){
         return Todo.builder()
                 .tno(todoDTO.getTno())
+                .writer(todoDTO.getWriter())
                 .title(todoDTO.getTitle())
                 .content(todoDTO.getContent())
                 .complete(todoDTO.isComplete())
