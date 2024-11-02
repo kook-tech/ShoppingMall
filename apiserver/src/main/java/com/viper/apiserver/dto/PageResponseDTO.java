@@ -51,6 +51,7 @@ public class PageResponseDTO<E> {
         //시작부터 끝을 boxed를 통해 Integer로 바꾸고 리스트로 만듬;
         this.prevPage = prev ? start - 1 : 0;
         this.nextPage = next ? end + 1 : 0;
+        this.current = pageRequestDTO.getPage();
     }
 
 
