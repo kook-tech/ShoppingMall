@@ -5,24 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b77c345f-4d0e-4b05-aff3-520d605068c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/apiserver.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/dto/ProductDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/util/CustomFileUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/3163ed5a-18e3-4350-a99e-79d631a59651_짜장면.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/8674957d-55be-46da-8b4a-b19710ae5a8e_비빔밥.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/s_3163ed5a-18e3-4350-a99e-79d631a59651_짜장면.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/upload/s_8674957d-55be-46da-8b4a-b19710ae5a8e_비빔밥.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiserver/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/apiserver/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiserver/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/apiserver/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/upload/default.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/util/CustomFileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/util/CustomFileUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$/apiserver">
@@ -112,10 +106,15 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kook\Desktop\mall-backend\upload" />
+    </key>
+  </component>
   <component name="RunManager" selected="Spring Boot.ApiserverApplication">
     <configuration name="apiserver [init]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -176,12 +175,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730539602153</updated>
-      <workItem from="1730539603167" duration="14363000" />
+      <workItem from="1730539603167" duration="21142000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="fileName" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

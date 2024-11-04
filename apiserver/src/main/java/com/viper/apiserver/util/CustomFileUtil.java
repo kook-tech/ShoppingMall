@@ -5,6 +5,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -29,7 +33,7 @@ public class CustomFileUtil {
     public void init() {
         //프로젝트 시작 시 폴더 생성
         File tempFolder = new File(uploadPath);
-        if(!tempFolder.exists()){
+        if (!tempFolder.exists()) {
             tempFolder.mkdir();
         }
 
@@ -39,15 +43,15 @@ public class CustomFileUtil {
         log.info(uploadPath);
     }
 
-    public List<String> saveFiles(List<MultipartFile> files) throws RuntimeException{
+    public List<String> saveFiles(List<MultipartFile> files) throws RuntimeException {
 
-        if(files == null || files.size() == 0){
+        if (files == null || files.size() == 0) {
             return null;
         }
 
         List<String> uploadNames = new ArrayList<>();
 
-        for(MultipartFile file : files){
+        for (MultipartFile file : files) {
 
             String savedName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
 
@@ -57,12 +61,12 @@ public class CustomFileUtil {
                 Files.copy(file.getInputStream(), savePath);    //원본 파일 업로드
 
                 String contentType = file.getContentType(); // Mime type
-                
-                //이미지라면 썸네일 제작
-                if(contentType != null && contentType.startsWith("image")){
-                    Path thumbnailPath = Paths.get(uploadPath, "s_"+savedName);
 
-                    Thumbnails.of(savePath.toFile()).size(200,200).toFile(thumbnailPath.toFile());
+                //이미지라면 썸네일 제작
+                if (contentType != null && contentType.startsWith("image")) {
+                    Path thumbnailPath = Paths.get(uploadPath, "s_" + savedName);
+
+                    Thumbnails.of(savePath.toFile()).size(200, 200).toFile(thumbnailPath.toFile());
 
                 }
 
@@ -74,5 +78,47 @@ public class CustomFileUtil {
         }
         return uploadNames;
 
+    }
+
+    public ResponseEntity<Resource> getFile(String fileName) {
+
+        Resource resource = new FileSystemResource(uploadPath + File.separator + fileName);
+
+        if (!resource.isReadable()) {
+            resource = new FileSystemResource(uploadPath + File.separator + "default.jpg");
+        }
+
+        HttpHeaders headers = new HttpHeaders();
+
+        try {
+            headers.add("Content-Type", Files.probeContentType(resource.getFile().toPath()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return ResponseEntity.ok().headers(headers).body(resource);
+    }
+
+    public void deleteFiles(List<String> fileNames) {
+        if (fileNames == null || fileNames.isEmpty()) {
+            return;
+        }
+
+        fileNames.forEach(fileName -> {
+
+            //썸네일 삭제
+            String thumbnailFileName = "s_" + fileName;
+
+            Path thumbnailPath = Paths.get(uploadPath + File.separator + thumbnailFileName);
+            Path filePath = Paths.get(uploadPath + File.separator + fileName);
+
+            try {
+                Files.deleteIfExists(filePath);
+                Files.deleteIfExists(thumbnailPath);
+            } catch (IOException e) {
+                throw new RuntimeException(e.getMessage());
+            }
+
+        });
     }
 }
