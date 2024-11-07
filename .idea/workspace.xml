@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b77c345f-4d0e-4b05-aff3-520d605068c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/domain/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/domain/ProductImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/repository/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apiserver/src/test/java/com/viper/apiserver/repository/ProductRepositoryTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/repository/search/ProductSearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/repository/search/ProductSearchImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiserver/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/apiserver/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiserver/src/test/java/com/viper/apiserver/repository/ProductRepositoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/apiserver/src/test/java/com/viper/apiserver/repository/ProductRepositoryTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,13 +47,7 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="apiserver" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="apiserver" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build setup" type="c8890929:TasksNode$1" />
+                <item name="other" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -91,9 +86,13 @@
     &quot;Gradle.C:/Users/kook/Desktop/mall-backend/apiserver.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ProductRepositoryTests.testDelete.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ProductRepositoryTests.testInsert.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ProductRepositoryTests.testInsert2.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ProductRepositoryTests.testList.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ProductRepositoryTests.testRead.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ProductRepositoryTests.testRead2.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ProductRepositoryTests.testSearch.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ProductRepositoryTests.updateTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.apiserver [compileJava].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.apiserver [init].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.apiserver.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
@@ -122,7 +121,7 @@
       <recent name="C:\Users\kook\Desktop\mall-backend\upload" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ProductRepositoryTests.updateTest">
+  <component name="RunManager" selected="Gradle.ProductRepositoryTests.testSearch">
     <configuration name="ProductRepositoryTests.testDelete" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -147,7 +146,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ProductRepositoryTests.testInsert" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ProductRepositoryTests.testList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/apiserver" />
@@ -160,7 +159,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.viper.apiserver.repository.ProductRepositoryTests.testInsert&quot;" />
+            <option value="&quot;com.viper.apiserver.repository.ProductRepositoryTests.testList&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -171,7 +170,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ProductRepositoryTests.testRead" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ProductRepositoryTests.testSearch" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/apiserver" />
@@ -184,31 +183,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.viper.apiserver.repository.ProductRepositoryTests.testRead&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="ProductRepositoryTests.testRead2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/apiserver" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.viper.apiserver.repository.ProductRepositoryTests.testRead2&quot;" />
+            <option value="&quot;com.viper.apiserver.repository.ProductRepositoryTests.testSearch&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -243,13 +218,42 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="apiserver [compileJava]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/apiserver" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="compileJava" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ApiserverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="apiserver.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.viper.apiserver.ApiserverApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ProductRepositoryTests.testSearch" />
+        <item itemvalue="Gradle.apiserver [compileJava]" />
+        <item itemvalue="Gradle.ProductRepositoryTests.testList" />
         <item itemvalue="Gradle.ProductRepositoryTests.updateTest" />
         <item itemvalue="Gradle.ProductRepositoryTests.testDelete" />
-        <item itemvalue="Gradle.ProductRepositoryTests.testRead2" />
-        <item itemvalue="Gradle.ProductRepositoryTests.testRead" />
-        <item itemvalue="Gradle.ProductRepositoryTests.testInsert" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +273,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730539602153</updated>
-      <workItem from="1730539603167" duration="27389000" />
+      <workItem from="1730539603167" duration="36033000" />
     </task>
     <servers />
   </component>
@@ -286,6 +290,10 @@
         <watch expression="fileName" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history />
+    <find-history />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
