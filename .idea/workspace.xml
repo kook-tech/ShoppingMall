@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b77c345f-4d0e-4b05-aff3-520d605068c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/repository/search/ProductSearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/repository/search/ProductSearchImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/service/ProductServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apiserver/src/test/java/com/viper/apiserver/service/ProductServiceTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiserver/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/apiserver/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/apiserver/src/main/java/com/viper/apiserver/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiserver/src/test/java/com/viper/apiserver/repository/ProductRepositoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/apiserver/src/test/java/com/viper/apiserver/repository/ProductRepositoryTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +90,7 @@
     &quot;Gradle.ProductRepositoryTests.testRead2.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ProductRepositoryTests.testSearch.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ProductRepositoryTests.updateTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ProductServiceTests.testList.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.apiserver [compileJava].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.apiserver [init].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.apiserver.executor&quot;: &quot;Run&quot;,
@@ -121,31 +120,7 @@
       <recent name="C:\Users\kook\Desktop\mall-backend\upload" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ProductRepositoryTests.testSearch">
-    <configuration name="ProductRepositoryTests.testDelete" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/apiserver" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.viper.apiserver.repository.ProductRepositoryTests.testDelete&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.ProductServiceTests.testList">
     <configuration name="ProductRepositoryTests.testList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -218,6 +193,30 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="ProductServiceTests.testList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/apiserver" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.viper.apiserver.service.ProductServiceTests.testList&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="apiserver [compileJava]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -249,11 +248,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ProductServiceTests.testList" />
         <item itemvalue="Gradle.ProductRepositoryTests.testSearch" />
         <item itemvalue="Gradle.apiserver [compileJava]" />
         <item itemvalue="Gradle.ProductRepositoryTests.testList" />
         <item itemvalue="Gradle.ProductRepositoryTests.updateTest" />
-        <item itemvalue="Gradle.ProductRepositoryTests.testDelete" />
       </list>
     </recent_temporary>
   </component>
@@ -273,7 +272,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730539602153</updated>
-      <workItem from="1730539603167" duration="36033000" />
+      <workItem from="1730539603167" duration="40133000" />
     </task>
     <servers />
   </component>
