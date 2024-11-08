@@ -1,6 +1,9 @@
 package com.viper.apiserver.controller;
 
+import com.viper.apiserver.dto.PageRequestDTO;
+import com.viper.apiserver.dto.PageResponseDTO;
 import com.viper.apiserver.dto.ProductDTO;
+import com.viper.apiserver.service.ProductService;
 import com.viper.apiserver.util.CustomFileUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -17,8 +20,8 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RequestMapping("/api/products")
 public class ProductController {
-
-    final private CustomFileUtil fileUtil;
+    private final ProductService productService;
+    private final CustomFileUtil fileUtil;
 
     @PostMapping("/")
     public Map<String, String> register(ProductDTO productDTO){
@@ -44,6 +47,13 @@ public class ProductController {
         log.info("view file : " + filename);
 
         return fileUtil.getFile(filename);
+    }
+
+
+    @GetMapping("/list")
+    public PageResponseDTO<ProductDTO> list(PageRequestDTO pageRequestDTO){
+        return productService.getList(pageRequestDTO);
+
     }
 
 
