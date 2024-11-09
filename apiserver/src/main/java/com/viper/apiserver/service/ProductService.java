@@ -11,4 +11,10 @@ public interface ProductService {
     PageResponseDTO<ProductDTO> getList(PageRequestDTO pageRequestDTO);
 
     Long register(ProductDTO productDTO);
+
+    ProductDTO get(Long p);
+
+    void modify(ProductDTO productDTO);
+
+    void remove(Long pno);
 }

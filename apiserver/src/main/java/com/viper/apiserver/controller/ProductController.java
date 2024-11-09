@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @Log4j2
@@ -73,4 +74,53 @@ public class ProductController {
     }
 
 
+    @GetMapping("/{pno}")
+    public ProductDTO read(@PathVariable("pno") Long pno) {
+        return productService.get(pno);
+    }
+
+
+    @PutMapping("/{pno}")
+    public Map<String, String> modify(@PathVariable Long pno, ProductDTO productDTO) {
+
+        productDTO.setPno(pno);
+
+        //old product Database saved Product
+        ProductDTO oldProductDTO = productService.get(pno);
+
+        //file upload
+        List<MultipartFile> files = productDTO.getFiles();
+        List<String> currentUploadFileNames = fileUtil.saveFiles(files);
+
+        //keep files String
+        List<String> uploadedFileNames = productDTO.getUploadedFileNames();
+
+        if (currentUploadFileNames != null && !currentUploadFileNames.isEmpty()) {
+            uploadedFileNames.addAll(currentUploadFileNames);
+        }
+
+        productService.modify(productDTO);
+
+        List<String> oldFileNames = oldProductDTO.getUploadedFileNames();
+        if (oldFileNames != null && oldFileNames.size() > 0) {
+            List<String> removeFiles =
+                    oldFileNames.stream().filter(fileName -> uploadedFileNames.indexOf(fileName) == -1).collect(Collectors.toList());
+
+            fileUtil.deleteFiles(removeFiles);
+        }
+
+        return Map.of("RESULT", "SUCCESS");
+
+    }
+
+    @DeleteMapping("/{pno}")
+    public Map<String, String> remove(@PathVariable Long pno) {
+        List<String> oldFileNames = productService.get(pno).getUploadedFileNames();
+
+        productService.remove(pno);
+
+        fileUtil.deleteFiles(oldFileNames);
+
+        return Map.of("RESULT", "SUCCESS");
+    }
 }

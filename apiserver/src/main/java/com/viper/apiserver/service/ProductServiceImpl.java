@@ -15,6 +15,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -70,6 +71,74 @@ public class ProductServiceImpl implements ProductService {
         Long pno = productRepository.save(product).getPno();
 
         return pno;
+    }
+
+    @Override
+    public ProductDTO get(Long p) {
+
+        Optional<Product> result = productRepository.findById(p);
+
+        Product product = result.orElseThrow();
+
+        ProductDTO productDTO = entityToDto(product);
+
+        return productDTO;
+    }
+
+    @Override
+    public void modify(ProductDTO productDTO) {
+        //조회
+        Optional<Product> result = productRepository.findById(productDTO.getPno());
+        Product product = result.orElseThrow();
+        //변경 내용 반영
+        product.changePrice(productDTO.getPrice());
+        product.changeName(productDTO.getPname());
+        product.changeDesc(productDTO.getPdesc());
+        product.changeDelFlag(productDTO.isDelFlag());
+
+        //이미지 처리
+        List<String> uploadedFileNames = productDTO.getUploadedFileNames();
+
+        product.clearList();
+
+        if(uploadedFileNames!=null && !uploadedFileNames.isEmpty()){
+            uploadedFileNames.forEach(uploadedFileName -> {
+                product.addImageString(uploadedFileName);
+            });
+        }
+
+        //저장
+        productRepository.save(product);
+    }
+
+    @Override
+    public void remove(Long pno) {
+        productRepository.deleteById(pno);
+    }
+
+
+    private ProductDTO entityToDto(Product product) {
+
+        ProductDTO productDTO = ProductDTO.builder()
+                .pno(product.getPno())
+                .pname(product.getPname())
+                .pdesc(product.getPdesc())
+                .price(product.getPrice())
+                .delFlag(product.isDelFlag())
+                .build();
+
+        List<ProductImage> imageList = product.getImageList();
+
+        if(imageList == null || imageList.isEmpty()) {
+            return productDTO;
+        }
+
+        List<String> fileNameList = imageList.stream().map(
+                ProductImage::getFileName).collect(Collectors.toList());
+
+        productDTO.setUploadedFileNames(fileNameList);
+
+        return productDTO;
     }
 
     private Product dtoToEntity(ProductDTO productDTO) {
