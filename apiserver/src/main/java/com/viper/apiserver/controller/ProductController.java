@@ -53,6 +53,8 @@ public class ProductController {
 
     @GetMapping("/list")
     public PageResponseDTO<ProductDTO> list(PageRequestDTO pageRequestDTO) {
+        log.info(pageRequestDTO.getPage());
+        log.info(pageRequestDTO.getSize());
         return productService.getList(pageRequestDTO);
 
     }
@@ -69,6 +71,7 @@ public class ProductController {
         log.info(uploadFileNames);
 
         Long pno = productService.register(productDTO);
+
 
         return Map.of("result", pno);
     }

@@ -18,17 +18,17 @@ public class CustomServletConfig implements WebMvcConfigurer {
         registry.addFormatter(new LocalDateFomatter());
     }
 
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .maxAge(500)
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS")
-                .allowedOrigins("*");
-        //어떤 경로에 대해서 cros를 적용할 것인가?
-        //연결대기허용 시간
-        //허용 메서드 OPTIONS -> pre flight (미리 한번 찔러봄) 시에 사용하므로 허용해줘야함.
-        //어디에서부터 들어오는 경로에 대해서 허락해줄 것인가?
-        //사실 addMapping과 allowedOrigins만 해줘도 문제는 없지만 추가 설정을 해주는 것이 좋다.
-
-    }
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/**")
+//                .maxAge(500)
+//                .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS")
+//                .allowedOrigins("*");
+//        //어떤 경로에 대해서 cros를 적용할 것인가?
+//        //연결대기허용 시간
+//        //허용 메서드 OPTIONS -> pre flight (미리 한번 찔러봄) 시에 사용하므로 허용해줘야함.
+//        //어디에서부터 들어오는 경로에 대해서 허락해줄 것인가?
+//        //사실 addMapping과 allowedOrigins만 해줘도 문제는 없지만 추가 설정을 해주는 것이 좋다.
+//
+//    }
 }
